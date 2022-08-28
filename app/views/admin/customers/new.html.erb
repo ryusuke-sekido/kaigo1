@@ -1,0 +1,6 @@
+<h1>会員登録</h1>
+<%= form_with model: @customer, url:'/admin/customers', method: :post do |f| %>
+ 名前
+ <%= f.text_field :name %>
+ <%= f.submit '登録' %>
+ <% end %>
