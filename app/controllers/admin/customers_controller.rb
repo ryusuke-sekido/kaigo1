@@ -9,10 +9,10 @@ class Admin::CustomersController < ApplicationController
     redirect_to admin_customers_path
   end
 
-
   def index
     @customers = Customer.all
   end
+  
 
   private
   def customer_params

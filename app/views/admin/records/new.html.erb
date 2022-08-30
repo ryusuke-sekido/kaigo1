@@ -1,1 +1,6 @@
 <h1>新規記録</h1>
+<%= form_with model: @record, url:'/admin/records', method: :post do |f| %>
+ 内容
+ <%= f.text_field :writing %>
+ <%= f.submit '記録する' %>
+ <% end %>
