@@ -16,6 +16,6 @@ class Admin::RecordsController < ApplicationController
 
   private
   def record_params
-     params.require(:record).permit(:writing)
+     params.require(:record).permit(:body)
   end
 end

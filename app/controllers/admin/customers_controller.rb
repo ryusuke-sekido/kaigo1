@@ -13,6 +13,17 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all
   end
   
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+  
+  def withdraw
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行しました。"
+    redirect_to root_path
+  end
+  
 
   private
   def customer_params

@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_08_28_065930) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_08_28_065930) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.string "writing"
+    t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
