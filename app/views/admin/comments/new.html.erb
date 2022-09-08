@@ -1,0 +1,7 @@
+<h1>コメント作成画面</h1>
+<%= form_with model: @comment, url:'/admin/comments', method: :post do |f| %>
+ コメント
+ <%= f.text_field :body %>
+ <%= f.submit '登録する' %>
+ <% end %>
+
