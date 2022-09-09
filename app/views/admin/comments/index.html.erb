@@ -1,6 +1,9 @@
 <h1>コメント一覧</h1>
 <% @comments.each do |comment| %>
 <p>コメント:
-<%= comment.body %></p>
+<%= comment.body %>
+<%= link_to "削除", admin_comment_path(comment.id),
+method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</p>
 <% end %>
 

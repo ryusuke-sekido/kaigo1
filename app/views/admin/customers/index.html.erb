@@ -1,5 +1,8 @@
 <h1>利用者一覧</h1>
 <% @customers.each do |customer| %>
  <p>利用者名:
- <%= link_to customer.name, new_admin_record_path %></p>
+ <%= link_to customer.name, new_admin_record_path %>
+ <%= link_to "削除", admin_customer_path(customer.id),
+ method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</p>
  <% end %>
