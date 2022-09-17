@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def search
-    if params[:name].present?
-      @customers = Customer.where('name LIKE ?', "%#{params[:name]}")
+    if params[:last_name].present?
+      @customers = Customer.where('last_name LIKE ?', "%#{params[:last_name]}")
     else
       @customers = Customer.none
 

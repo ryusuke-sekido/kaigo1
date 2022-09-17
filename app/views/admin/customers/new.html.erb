@@ -1,6 +1,8 @@
 <h1>新規利用者登録</h1>
 <%= form_with model: @customer, url:'/admin/customers', method: :post do |f| %>
- 名前
- <%= f.text_field :name %>
+ 名前<%= f.text_field :last_name %> <%= f.text_field :first_name %><br>
+ カナ<%= f.text_field :last_name_kana %>
+ <%= f.text_field :first_name_kana %><br>
+ 参加曜日<%= f.text_field :day %>曜日<br>
  <%= f.submit '登録する' %>
  <% end %>
