@@ -13,6 +13,7 @@ class CreateCustomers < ActiveRecord::Migration[6.1]
       t.string :telephone_number
       t.string :care_number
       t.string :day
+      t.string :plan
 
       t.boolean :is_deleted, default: false, null: false
 

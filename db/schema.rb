@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_08_28_065930) do
     t.string "telephone_number"
     t.string "care_number"
     t.string "day"
+    t.string "plan"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,12 +55,15 @@ ActiveRecord::Schema.define(version: 2022_08_28_065930) do
   end
 
   create_table "records", force: :cascade do |t|
+    t.string "customer_id"
     t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", force: :cascade do |t|
+    t.string "customer_id"
+    t.string "plan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
