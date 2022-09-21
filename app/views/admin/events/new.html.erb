@@ -1,0 +1,6 @@
+<h1>イベント登録画面</h1>
+<%= form_with model: @event, url:'/admin/events', method: :post do |f| %>
+ <%= f.text_field :title %>
+ 
+ <%= f.submit "保存する" %>
+ <% end %>

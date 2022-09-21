@@ -1,0 +1,12 @@
+<h1>カレンダー</h1
+ <%= month_calendar events: @carendars do |date, carendars| %>
+  <%= date.day %>
+
+   <% carendars.each do |carendar| %>
+    <%= carendar.title %>
+   <% end %>
+ <% end %>
+
+ <%= link_to '予定を追加する', new_admin_carendar_path %>
+
+

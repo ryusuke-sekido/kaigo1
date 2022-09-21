@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :schedules, only:[:new, :index]
     resources :events
+    resources :carendars
   end
 
   devise_scope :admin do
