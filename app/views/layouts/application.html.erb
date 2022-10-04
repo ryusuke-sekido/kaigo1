@@ -2,18 +2,18 @@
 <html>
   <head>
     <title>Kaigo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="search_form">
       <%= form_with url: search_path, method: :get, local:true do |f| %>
-       <%= f.text_field :last_name %>
+       利用者検索<%= f.text_field :last_name %>
        <%= f.submit "検索", class: "btn btn-primary" %>
       <% end %>
     </div>
@@ -21,6 +21,7 @@
     <div class="select_form">
       <%= form_with url: "/select", method: :get, local:true do |f| %>
        <%= f.text_field :day %>曜日
+       <%#<%= f.select :day, [['月',1],['火',2],['水',3]] %><%#曜日 %>
        <%= f.submit "曜日を絞り込む", class: "btn btn-primary" %>
       <% end %>
     </div>
@@ -28,8 +29,9 @@
     <%= link_to "新規利用者登録", new_admin_customer_path %>
     <%= link_to "利用者一覧", admin_customers_path %>
     <%= link_to "記録一覧", admin_records_path %>
-    <%= link_to "新しく記録する", new_admin_record_path %>
     <%= link_to "カレンダー", admin_carendars_path %>
+    <%= button_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+    <%= link_to "ログイン画面", new_admin_session_path %>
 
     <%= yield %>
   </body>

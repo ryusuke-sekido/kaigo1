@@ -11,7 +11,7 @@ class Admin::RecordsController < ApplicationController
   end
 
   def index
-    @records = Record.all
+    @records = Record.all.order(created_at: :DESC)
     @customers = Customer.all
   end
 
