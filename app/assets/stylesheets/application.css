@@ -16,12 +16,11 @@
  */
 
 .search_form {
- display: inline-block;
- margin-left: 100px;
+ float: left;
+ margin-right: 50px;
 }
 .select_form {
   display: inline-block;
-  margin-left: 50px;
 }
 
 .list-customer{

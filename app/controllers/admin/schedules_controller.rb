@@ -15,6 +15,19 @@ class Admin::SchedulesController < ApplicationController
     @schedules = Schedule.all
   end
 
+  def edit
+   @customer = Customer.find(params[:customer_id])
+   @schedule = Schedule.find(params[:id])
+
+  end
+
+  def update
+   @customer = Customer.find(params[:customer_id])
+   @schedule = Schedule.find(params[:id])
+   @schedule.update(schedule_params)
+   redirect_to admin_customer_path(@customer.id)
+  end
+
   private
   def schedule_params
     params.require(:schedule).permit(:plan)

@@ -1,6 +1,7 @@
 class Admin::RecordsController < ApplicationController
   def new
     @record = Record.new
+    @customer = Customer.find(params[:customer_id])
   end
 
   def create
@@ -17,7 +18,7 @@ class Admin::RecordsController < ApplicationController
 
   private
   def record_params
-     params.require(:record).permit(:customer_id, :body)
+     params.require(:record).permit(:body)
   end
 
   def customer_params

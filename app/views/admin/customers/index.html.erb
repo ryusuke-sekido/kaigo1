@@ -8,6 +8,7 @@
  <%= link_to customer.last_name, admin_customer_path(customer.id) %>
  <%= link_to customer.first_name, admin_customer_path(customer.id) %>
  <%= customer.day %>曜日
+ <%= link_to "新しく記録する", new_admin_customer_record_path(customer.id) %>
  <%= link_to "編集", edit_admin_customer_path(customer.id) %>
  <%= link_to "削除", admin_customer_path(customer.id),
  method: :delete, "data-confirm" => "本当に削除しますか？" %>

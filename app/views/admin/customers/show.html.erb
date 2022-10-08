@@ -1,26 +1,14 @@
-<h1>利用者詳細画面</h1>
+<h1><%= @customer.last_name %><%= @customer.first_name %>様の詳細画面</h1>
 利用曜日：<%= @customer.day %>曜日<br>
 参加予定日：<% @schedules.each do |schedule| %>
              <%= schedule.plan %>,
             <% end %><br>
-<%= link_to "利用者編集へ", edit_admin_customer_path(@customer.id) %>
+<%= link_to "登録内容を編集する", edit_admin_customer_path(@customer.id) %>
 
-<h1>参加予定日追加</h1>
-<%= form_with model: [@customer, @schedule],
-url:admin_customer_schedules_path(@customer.id), method: :post do |f| %>
- 参加予定日(◯月◯日)<%= f.text_field :plan %>
- <%= f.submit '参加予定日を追加する' %>
-<% end %>
+<h2>投稿一覧</h2>
+<%= @customer.last_name %><%= @customer.first_name %>様へ
+ <%= link_to "新しく記録する", new_admin_customer_record_path(@customer.id) %><br>
 
-<h1><%= @customer.last_name %><%= @customer.first_name %>様への記録</h1>
-<%= form_with model: [@customer, @record],
-url:admin_customer_records_path(@customer.id), method: :post do |f| %>
- 内容<%#↑customerとrecordを関連付けて投稿した %>
- <%= f.text_field :body %>
- <%= f.submit '記録する' %>
- <% end %>
-
-<h3>投稿一覧</h3>
 <% @records.each do |record| %>
 <%= record.created_at.strftime('%Y/%m/%d') %> <%= record.body %><br>
 <% end %>

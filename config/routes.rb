@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw'
     resources :customers do
-     resources :records, only: [:create, :update, :destroy]
-     resources :schedules, only: [:new, :create, :update, :destroy]
+     resources :records, only: [:new, :create, :edit, :update, :destroy]
+     resources :schedules, only: [:new, :create, :edit, :update, :destroy]
     end
-    resources :records, only: [:new, :index]
+    resources :records, only: [:index]
     resources :comments
-    resources :schedules, only:[:new, :index]
+    resources :schedules, only:[:index]
     resources :events
     resources :carendars
   end

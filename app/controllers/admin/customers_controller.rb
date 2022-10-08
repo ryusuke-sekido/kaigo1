@@ -17,12 +17,14 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @record = Record.new
     @records = @customer.records
-    @schedule = Schedule.new
     @schedules = @customer.schedules
   end
 
   def edit
     @customer = Customer.find(params[:id])
+    @schedule = Schedule.new
+    @schedule = Schedule.find(params[:id])
+    @schedules = @customer.schedules
   end
 
   def update
