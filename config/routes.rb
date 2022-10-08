@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     patch '/customers/withdraw' => 'customers#withdraw'
     resources :customers do
      resources :records, only: [:create, :update, :destroy]
-     resources :schedules, only: [:create, :update, :destroy]
+     resources :schedules, only: [:new, :create, :update, :destroy]
     end
     resources :records, only: [:new, :index]
     resources :comments

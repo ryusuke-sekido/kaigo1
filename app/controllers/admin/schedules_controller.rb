@@ -1,6 +1,7 @@
 class Admin::SchedulesController < ApplicationController
   def new
     @schedule = Schedule.new
+    @customer = Customer.find(params[:customer_id])
   end
 
   def create

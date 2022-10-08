@@ -19,9 +19,9 @@
     </div>
 
     <div class="select_form">
-      <%= form_with url: "/select", method: :get, local:true do |f| %>
-       <%= f.text_field :day %>曜日
-       <%#<%= f.select :day, [['月',1],['火',2],['水',3]] %><%#曜日 %>
+      <%= form_with model: @application ,url: "/select", method: :get, local:true do |f| %>
+       <%#<%= f.text_field :day %>
+       <%= f.select :day, [['月','月'],['火','火'],['水','水'],['木','木'],['金','金'],['土','土'],['日','日']] %>
        <%= f.submit "曜日を絞り込む", class: "btn btn-primary" %>
       <% end %>
     </div>

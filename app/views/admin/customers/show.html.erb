@@ -1,9 +1,8 @@
 <h1>利用者詳細画面</h1>
 利用曜日：<%= @customer.day %>曜日<br>
-参加予定日：
-<% @schedules.each do |schedule| %>
-<%= schedule.plan %>,
-<% end %><br>
+参加予定日：<% @schedules.each do |schedule| %>
+             <%= schedule.plan %>,
+            <% end %><br>
 <%= link_to "利用者編集へ", edit_admin_customer_path(@customer.id) %>
 
 <h1>参加予定日追加</h1>

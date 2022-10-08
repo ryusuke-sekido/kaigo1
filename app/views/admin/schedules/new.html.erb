@@ -1,5 +1,6 @@
 <h1>参加予定日追加</h1>
-<%= form_with model: [@customer, @schedule], 
+<%= @customer.last_name %> <%= @customer.first_name %>様
+<%= form_with model: [@customer, @schedule],
 url:admin_customer_schedules_path(@customer.id), method: :post do |f| %>
  参加予定日(◯月◯日)<%= f.text_field :plan %>
  <%= f.submit '登録する' %>
