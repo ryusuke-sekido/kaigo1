@@ -14,3 +14,21 @@
  *= require_tree .
  *= require_self
  */
+
+.search_form {
+ display: inline-block;
+ margin-left: 100px;
+}
+.select_form {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.list-customer{
+  text-align: center;
+}
+
+.list-name {
+  text-align: center;
+  margin: 30px;
+}

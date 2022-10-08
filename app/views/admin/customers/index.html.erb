@@ -1,6 +1,10 @@
-<h1>利用者一覧</h1>
-<% @customers.each do |customer| %>
- <p>利用者名:
+
+<div class= "list-customer">
+ <h1>利用者一覧</h1>
+</div>
+ <% @customers.each do |customer| %>
+  <div class= "list-name" >
+    <p>利用者名:
  <%= link_to customer.last_name, admin_customer_path(customer.id) %>
  <%= link_to customer.first_name, admin_customer_path(customer.id) %>
  <%= customer.day %>曜日
@@ -8,4 +12,6 @@
  <%= link_to "削除", admin_customer_path(customer.id),
  method: :delete, "data-confirm" => "本当に削除しますか？" %>
 </p>
+  </div>
+
  <% end %>
