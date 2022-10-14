@@ -12,9 +12,6 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <div class="field">
-  <%= link_to 'ゲストログイン（閲覧用）', admins_guest_sign_in_path, method: :post %>
-  </div>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
@@ -32,4 +29,8 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "新規登録", new_registration_path(resource_name) %><br>
 <% end %>
+</div>
+
+<div class="field">
+ <%= link_to 'ゲストログイン（閲覧用）', admins_guest_sign_in_path, method: :post %>
 </div>

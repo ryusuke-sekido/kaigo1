@@ -11,14 +11,13 @@
   </head>
 
   <body>
+  <div class="nav" >
+   <% if admin_signed_in? %>
     <%=   %></br>
-    <%= link_to "新規利用者登録", new_admin_customer_path %>
-    <%= link_to "利用者一覧", admin_customers_path %>
-    <%= link_to "カレンダー", admin_carendars_path %></br>
-
-    <%= link_to "ログイン", new_admin_session_path %>
-    <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></br>
-
+    <%= button_to "新規利用者登録", new_admin_customer_path, method: :get %>
+    <%= button_to "利用者一覧", admin_customers_path, method: :get %>
+    <%= button_to "記録一覧", admin_records_path, method: :get %>
+    <%= button_to "カレンダー", admin_carendars_path, method: :get %>
     <div class="search">
       <%= form_with url: search_path, method: :get, local:true do |f| %>
        利用者検索<%= f.text_field :last_name %>
@@ -30,10 +29,17 @@
       <%= form_with model: @application ,url: "/select", method: :get, local:true do |f| %>
        <%#<%= f.text_field :day %>曜日検索
        <%= f.select :day, [['月','月'],['火','火'],['水','水'],['木','木'],['金','金'],['土','土'],['日','日']] %>
-       <%= f.submit "曜日を絞り込む", class: "btn btn-primary" %>
+       <%= f.submit "曜日で利用者を絞り込む", class: "btn btn-primary" %>
       <% end %>
     </div>
+    <%= button_to 'ログアウト', destroy_admin_session_path, method: :delete %>
 
+   <% else %>
+     <%=   %></br>
+     <%= button_to "ログイン", new_admin_session_path, method: :get %>
+     <%= button_to "新規登録", new_admin_registration_path, method: :get %><br>
+   <% end %>
+   </div>
     <%= yield %>
   </body>
 </html>

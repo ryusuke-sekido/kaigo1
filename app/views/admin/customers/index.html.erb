@@ -1,18 +1,28 @@
 
 <div class= "list-customer">
- <h1>利用者一覧</h1>
-</div>
- <% @customers.each do |customer| %>
+ <h1>利用者一覧</h1></div>
   <div class= "list-name" >
-    <p>利用者名:
- <%= link_to customer.last_name, admin_customer_path(customer.id) %>
- <%= link_to customer.first_name, admin_customer_path(customer.id) %>
- <%= customer.day %>曜日
- <%= link_to "新しく記録する", new_admin_customer_record_path(customer.id) %>
- <%= link_to "編集", edit_admin_customer_path(customer.id) %>
- <%= link_to "削除", admin_customer_path(customer.id),
- method: :delete, "data-confirm" => "本当に削除しますか？" %>
-</p>
-  </div>
+  <table border="1">
+   <thead>
+    <th>利用者名</th>
+    <th>利用曜日</th>
+    <th>新規記録</th>
+    <th>編集</th>
+    <th>削除</th>
+   </thead>
 
- <% end %>
+   <tbody>
+    <tr>
+      <% @customers.each do |customer| %>
+     <td><%= link_to customer.last_name, admin_customer_path(customer.id) %>
+         <%= link_to customer.first_name, admin_customer_path(customer.id) %></td>
+     <td><%= customer.day %></td>
+     <td><%= link_to "新しく記録する", new_admin_customer_record_path(customer.id) %></td>
+     <td><%= link_to "編集", edit_admin_customer_path(customer.id) %></td>
+     <td><%= link_to "削除", admin_customer_path(customer.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    </tr>
+     <% end %>
+   </tbody>
+  </table>
+ </div>
+

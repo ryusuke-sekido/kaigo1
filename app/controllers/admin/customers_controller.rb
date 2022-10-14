@@ -10,14 +10,14 @@ class Admin::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order("last_name_kana")
   end
 
   def show
     @customer = Customer.find(params[:id])
     @record = Record.new
     @records = @customer.records
-    @schedules = @customer.schedules
+    @schedules = @customer.schedules.order(plan: :DESC)
   end
 
   def edit
@@ -50,7 +50,7 @@ class Admin::CustomersController < ApplicationController
   private
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana,
-    :first_name_kana, :sex, :age, :postal_code, :address, :telephone_number, :day, :plan)
+    :first_name_kana, :sex, :age, :postal_code, :address, :telephone_number, :day, :plan, :is_deleted)
   end
 
   def record_params

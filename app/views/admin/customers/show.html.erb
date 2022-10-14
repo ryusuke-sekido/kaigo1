@@ -1,15 +1,43 @@
-<h1><%= @customer.last_name %><%= @customer.first_name %>様の詳細画面</h1>
-利用曜日：<%= @customer.day %>曜日<br>
-参加予定日：<% @schedules.each do |schedule| %>
-             <%= schedule.plan %>,
-            <% end %><br>
-<%= link_to "登録内容を編集する", edit_admin_customer_path(@customer.id) %>
+<div class="customer-show">
+ <h1>
+   <%= @customer.last_name %>
+   <%= @customer.first_name %>様の詳細画面
+ </h1>
+ <br><%= link_to "編集", edit_admin_customer_path(@customer.id) %>
+</div>
 
-<h2>投稿一覧</h2>
-<%= @customer.last_name %><%= @customer.first_name %>様へ
+<div class="customer-age">
+ <p>年齢：</p>
+ <%= @customer.age %>歳
+</div>
+
+<div class="customer-sex">
+ <p>性別：</p>
+ <%= @customer.sex %>
+</div>
+
+<div class="customer-day">
+ <p>利用曜日：<%= @customer.day %>曜日</p><br>
+</div>
+
+<div class="customer-plan">
+ <p>参加予定日：
+  <% @schedules.each do |schedule| %>
+   <%= schedule.plan %>,
+  <% end %>
+ </p>
+</div>
+
+<div class="record" >
+ <h2>投稿一覧</h2>
+</div>
+
+<div class ="record">
+ <%= @customer.last_name %><%= @customer.first_name %>様へ
  <%= link_to "新しく記録する", new_admin_customer_record_path(@customer.id) %><br>
-
-<% @records.each do |record| %>
-<%= record.created_at.strftime('%Y/%m/%d') %> <%= record.body %><br>
-<% end %>
-
+</div>
+ <div class="record-list" >
+  <% @records.each do |record| %>
+  <%= record.created_at.strftime('%Y/%m/%d') %> <%= record.body %><br>
+  <% end %>
+</div>
