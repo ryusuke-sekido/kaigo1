@@ -1,21 +1,24 @@
 
-<div class="record" >
+<div class="title" >
  <h1>記録一覧画面</h1></div>
 <%#日付で絞り込む %>
-<div class="record-list">
+<div class="list">
 <table border="1">
  <thead>
   <th>日付</th>
   <th>利用者名</th>
   <th>内容</th>
+  <th>新しく記録する</th>
  </thead>
 
  <tbody>
   <tr>
    <% @records.each do |record| %>
    <td><%= record.created_at.strftime('%Y/%m/%d') %></td>
-   <td><%= record.customer.last_name %><%= record.customer.first_name %></td>
+   <td><%= link_to record.customer.last_name, admin_customer_path(record.customer.id) %>
+   <%= link_to record.customer.first_name, admin_customer_path(record.customer.id) %></td>
    <td><%= record.body %></td>
+   <td><%= link_to "新しく記録する", new_admin_customer_record_path(record.customer.id) %> </td>
   </tr>
    <% end %>
  </tbody>

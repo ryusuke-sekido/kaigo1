@@ -1,11 +1,13 @@
-<h1>イベントカレンダー</h1
+<div class= "title" >
+ <h1>イベントカレンダー</h1>
+</div>
+
+<div class= "lsit">
+ <%= link_to '予定を追加する', new_admin_carendar_path %>
  <%= month_calendar events: @carendars do |date, carendars| %>
   <%= date.day %>
    <% carendars.each do |carendar| %>
     </br><%= carendar.title %>
    <% end %>
  <% end %>
-
- <%= link_to '予定を追加する', new_admin_carendar_path %>
-
-
+</div>

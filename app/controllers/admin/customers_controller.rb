@@ -5,8 +5,11 @@ class Admin::CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.save
-    redirect_to admin_customers_path
+    if @customer.save
+      redirect_to admin_customers_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -15,15 +18,13 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @record = Record.new
     @records = @customer.records
-    @schedules = @customer.schedules.order(plan: :DESC)
+    @schedules = @customer.schedules.order(plan: :ASC)
   end
 
   def edit
     @customer = Customer.find(params[:id])
     @schedule = Schedule.new
-    @schedule = Schedule.find(params[:id])
     @schedules = @customer.schedules
   end
 
@@ -50,7 +51,8 @@ class Admin::CustomersController < ApplicationController
   private
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana,
-    :first_name_kana, :sex, :age, :postal_code, :address, :telephone_number, :day, :plan, :is_deleted)
+    :first_name_kana, :sex, :age, :postal_code, :address, :telephone_number,
+    :care_number, :day, :plan, :is_deleted)
   end
 
   def record_params

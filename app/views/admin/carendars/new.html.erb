@@ -1,4 +1,8 @@
-<h1>カレンダー予定投稿画面</h1>
+<div class= "title" >
+ <h1>カレンダー追加画面</h1>
+</div>
+
+<div class= "list">
 <%= form_with model: @carendar, url:'/admin/carendars', method: :post do |f| %>
  <p>タイトル</p>
  <%= f.text_field :title %>
@@ -9,3 +13,4 @@
  <br>
  <%= f.submit '予定を追加する' %>
 <% end %>
+</div>

@@ -1,13 +1,16 @@
-<div class="record">
+<div class="title">
  <h1>新規記録</h1>
 </div>
 
-<div class="record-list">
+<div class="subtitle">
  <%= @customer.last_name %> <%= @customer.first_name %>様の記録
+</div>
+
+<div class="list">
  <%= form_with model: [@customer, @record],
  url:admin_customer_records_path(@customer.id), method: :post do |f| %>
   内容
   <%= f.text_field :body %>
   <%= f.submit '記録する' %>
  <% end %>
-</div>
+ </div>

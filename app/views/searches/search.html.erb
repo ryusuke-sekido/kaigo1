@@ -1,6 +1,12 @@
-<h1>利用者検索結果</h1>
+<div class="title">
+ <h1>利用者検索結果</h1>
+</div>
+
+<div class= "list">
+<%= flash[:alert]  %>
 <% @customers.each do |customer| %>
  <%= customer.last_name %>
  <%= customer.first_name %>
  <%= customer.day %>曜日
 <% end %>
+</div>

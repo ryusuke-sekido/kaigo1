@@ -24,15 +24,6 @@
   justify-content: right;
 }
 
-.list-customer{
-  text-align: center;
-}
-
-.list-name {
-  display:flex;
-  justify-content: center;
-}
-
 .field {
   display:flex;
   justify-content: center;
@@ -48,42 +39,16 @@
   justify-content: center;
 }
 
-.record{
-  display:flex;
-  justify-content: center;
-}
-
-.record-list{
-  display:flex;
-  justify-content: center;
-}
-
-.customer-show{
-  display:flex;
-  justify-content: center;
-}
-
-.customer-day{
-  display:flex;
-  justify-content: center;
-}
-
-.customer-plan{
-  display:flex;
-  justify-content: center;
-}
-
-.customer-age{
-  display:flex;
-  justify-content: center;
-}
-
-.customer-sex{
-  display:flex;
-  justify-content: center;
-}
-
 .title{
+  display:flex;
+  justify-content: center;
+}
+.subtitle{
+  display:flex;
+  justify-content: center;
+}
+
+.list{
   display:flex;
   justify-content: center;
 }
@@ -91,4 +56,5 @@
 .link{
   display:flex;
   justify-content: center;
+  margin: 10px;
 }

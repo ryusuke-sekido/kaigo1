@@ -8,12 +8,11 @@ class Admin::RecordsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @record = @customer.records.new(record_params)
     @record.save
-    redirect_to admin_customer_path(@customer.id)
+    redirect_to admin_records_path
   end
 
   def index
     @records = Record.all.order(created_at: :DESC)
-    @customers = Customer.all
   end
 
   private

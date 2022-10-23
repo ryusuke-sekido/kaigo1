@@ -2,34 +2,24 @@
  <h1><%= @customer.last_name %><%= @customer.first_name %>様の編集画面</h1>
 </div>
 
-<div class="customer-age">
-<h2>年齢</h2>
+<div class="list">
 <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
  年齢<%= f.text_field :age %>歳<br>
  性別<%= f.text_field :sex %><br>
+ 参加曜日<%= f.text_field :day %>曜日<br>
+ 介護度<%= f.text_field :care_number %><br>
 <%= f.submit'変更する' %>
 <%end %>
-</div>
-
-<div class="title">
- <h2>参加曜日編集</h2>
-</div>
-
-<div class="customer-plan">
- <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
-  曜日<%= f.text_field :day %>
-  <%= f.submit'変更を保存する' %>
- <% end %>
 </div>
 
 <div class="title">
  <h2>参加日程追加</h2>
 </div>
 
-<div class="customer-plan">
+<div class="list">
  <%= form_with model: [@customer, @schedule],
  url:admin_customer_schedules_path(@customer.id), method: :post do |f| %>
-  参加日程(◯月◯日)<%= f.text_field :plan %>
+  参加日程(◯月◯日)<%= f.text_field :plan %><br>
   <%= f.submit '参加日程を追加する' %>
  <% end %>
 </div>

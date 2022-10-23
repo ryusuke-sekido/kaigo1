@@ -3,7 +3,9 @@ class SearchesController < ApplicationController
     if params[:last_name].present?
       @customers = Customer.where('last_name LIKE ?', "%#{params[:last_name]}")
     else
-      @customers = Customer.none
+      flash[:alert] ='該当者はいませんでした'
+      render :search
+      #@customers = Customer.none
 
     #@range = params[:range]
     #if @range == "Customer"

@@ -1,6 +1,9 @@
-<h1>曜日検索結果</h1>
+<div class= "title">
+ <h1>曜日検索結果</h1>
+</div>
+<div class= "list">
 <% @customers.each do |customer| %>
  <%= link_to customer.last_name, admin_customer_path(customer.id) %>
  <%= link_to customer.first_name, admin_customer_path(customer.id) %>
- <%= customer.day %>曜日
 <% end %>
+</div>
